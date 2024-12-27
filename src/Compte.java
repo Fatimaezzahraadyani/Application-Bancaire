@@ -26,7 +26,7 @@ public abstract class Compte {
         return solde;
     }
 
-    public void setSolde() {
+    public void setSolde(double v) {
         this.solde = solde;
     }
 
@@ -73,8 +73,16 @@ public abstract class Compte {
            }
         }
         return input;
-
-
+    }
+    public static Compte rechercheCompte(){
+        System.out.println("entrer le numero de compte à rechercher : ");
+        String numero = validationInput(sc.nextLine(),"^[0-9]{2,24}$");
+        for (Compte compte : comptes){
+            if (compte.getNum().equals(numero)){
+                return compte;
+            }
+        }
+        return null;
     }
 
     public static void AfficherCompte(){

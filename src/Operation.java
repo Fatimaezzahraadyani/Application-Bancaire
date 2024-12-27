@@ -43,11 +43,24 @@ public class Operation {
     public void setCompteAssocie(Compte compteAssocie) {
         this.compteAssocie = compteAssocie;
     }
-
-    public void depot(){
-
+    static  Scanner  scanner = new Scanner(System.in);
+    public static void depot(){
+        Compte compte = Compte.rechercheCompte();
+        if(compte == null){
+            System.out.println("Compte introuvable !");
+            return;
+        }else {
+            System.out.println("entrer le montant que vous voulez deposer :");
+            double montant = scanner.nextDouble();
+            compte.setSolde((compte.getSolde() + montant));
+            System.out.println("Montant déposer !");
+        }
     }
-    
+    public static void retrait(){
+        Compte compte = Compte.rechercheCompte();
+    }
+
+
 
 
     @Override

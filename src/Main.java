@@ -124,7 +124,7 @@ public class Main {
                 sh = scanner.nextInt();
                 switch (sh) {
                     case 1:
-                        //mthd depot
+                        Operation.depot();//mthd depot
                         break;
                     case 2:
                         //mthd retrait
