@@ -76,7 +76,7 @@ public abstract class Compte {
     }
     public static Compte rechercheCompte(){
         System.out.println("entrer le numero de compte à rechercher : ");
-        String numero = validationInput(sc.nextLine(),"^[0-9]{2,24}$");
+        String numero = sc.nextLine();
         for (Compte compte : comptes){
             if (compte.getNum().equals(numero)){
                 return compte;
