@@ -40,7 +40,7 @@ public abstract class Compte {
     public static void CreeCompte() {
 
         System.out.println("entrer numéro de compte : ");
-        String nmr = (sc.nextLine());
+        String nmr = validationInput(sc.nextLine(),"^[0-9]{2,24}$");
         System.out.println("entrer le solde initiale : ");
         double sld = sc.nextDouble();
 
@@ -62,15 +62,30 @@ public abstract class Compte {
         }
 
     }
+    public static String validationInput(String input,String regex){
+        while (true){
+
+            input = sc.nextLine();
+           if(input.matches(regex)){
+               break;
+           }else {
+               System.out.println("invalide input !!");
+           }
+        }
+        return input;
+
+
+    }
+
     public static void AfficherCompte(){
         for (Compte compte : comptes){
-            compte.toString();
+            System.out.println(compte.toString());
         }
     }
     public String toString() {
         return
                 "num='" + num + '\'' +
                 ", solde=" + solde +
-                ", proprietaire='" + proprietaire.getNom() +" "+ proprietaire.getPrenom() ;
+                ", proprietaire= '" + proprietaire.getNom() +" "+ proprietaire.getPrenom() ;
     }
 }

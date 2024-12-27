@@ -72,9 +72,9 @@ public class Client {
         System.out.println("addresse : ");
         String addresse = sc.nextLine();
         System.out.println("email : ");
-        String email = sc.nextLine();
+        String email = Compte.validationInput(sc.nextLine(),"^[\\w]+@[\\w]+\\.[A-Za-z]{2,3}$");
         System.out.println("tele : ");
-        int tele = sc.nextInt();
+        int tele = Integer.parseInt(Compte.validationInput(sc.nextLine(),"^[\\d]{10}$"));
         sc.nextLine();
         System.out.println("id : ");
         int id = sc.nextInt();
@@ -98,7 +98,7 @@ public class Client {
             if (client.getId() == d) {
                 return client;
             } else {
-                System.out.println("client introuvable !!");
+                System.out.println("Client introuvable !!");
             }
         }
     return null;

@@ -7,6 +7,7 @@ public class Main {
 
     static ArrayList<Client> clients = new ArrayList<>();
     static ArrayList<Compte> comptes = new ArrayList<>();
+    static ArrayList<Operation> operations = new ArrayList<>();
 
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
@@ -93,10 +94,10 @@ public class Main {
                 choix = scanner.nextInt();
                 switch (choix) {
                     case 1:
-                        CompteCourant.CreeCompte();//mthd cree compte
+                        Compte.CreeCompte();//mthd cree compte
                         break;
                     case 2:
-                        //mthd afficher infos
+                        Compte.AfficherCompte();//mthd afficher infos
                         break;
                     case 3:
                         //mthd associer
