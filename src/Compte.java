@@ -27,7 +27,7 @@ public abstract class Compte {
     }
 
     public void setSolde(double v) {
-        this.solde = solde;
+        this.solde = v;
     }
 
     public Client getProprietaire() {
@@ -49,12 +49,12 @@ public abstract class Compte {
                 "\n 1-Compte Epargne :" +
                 "\n 2-Compte Courant :");
         int choix = sc.nextInt();
-        if(choix==1){
+        if(choix==2){
             System.out.println("entrer le fraisbancaire : ");
             double fraisBancaire = sc.nextDouble();
             comptes.add(new CompteCourant(nmr, sld, Client.proprietaire(), fraisBancaire));
 
-        } else if(choix==2){
+        } else if(choix==1){
             System.out.println("entrer le  tauxInteret : ");
             double  tauxInteret = sc.nextDouble();
             comptes.add(new CompteEpargne(nmr, sld, Client.proprietaire(), tauxInteret));
@@ -65,11 +65,11 @@ public abstract class Compte {
     public static String validationInput(String input,String regex){
         while (true){
 
-            input = sc.nextLine();
            if(input.matches(regex)){
                break;
            }else {
                System.out.println("invalide input !!");
+               input = sc.nextLine();
            }
         }
         return input;

@@ -127,7 +127,7 @@ public class Main {
                         Operation.depot();//mthd depot
                         break;
                     case 2:
-                        //mthd retrait
+                        Operation.retrait();//mthd retrait
                         break;
                     case 3:
                         //mthd virement

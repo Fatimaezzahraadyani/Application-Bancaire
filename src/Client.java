@@ -7,12 +7,12 @@ public class Client {
     private String prenom;
     private String addresse;
     private String email;
-    private int Tele;
+    private String Tele;
     private int Id;
 
 
     static Scanner sc = new Scanner(System.in);
-    public Client (String nom,String prenom,String addresse,String email,int Id,int Tele) {
+    public Client (String nom,String prenom,String addresse,String email,int Id,String Tele) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -56,11 +56,11 @@ public class Client {
         this.email = email;
     }
 
-    public int getTele() {
+    public String getTele() {
         return Tele;
     }
 
-    public void setTele(int tele) {
+    public void setTele(String tele) {
         Tele = tele;
     }
     public static Client Ajouterclient(){
@@ -72,10 +72,11 @@ public class Client {
         System.out.println("addresse : ");
         String addresse = sc.nextLine();
         System.out.println("email : ");
-        String email = Compte.validationInput(sc.nextLine(),"^[\\w]+@[\\w]+\\.[A-Za-z]{2,3}$");
+        String em = sc.nextLine();
+        String email = Compte.validationInput(em,"^[\\w]+@[\\w]+\\.[A-Za-z]{2,}$");
         System.out.println("tele : ");
-        int tele = Integer.parseInt(Compte.validationInput(sc.nextLine(),"^[\\d]{10}$"));
-        sc.nextLine();
+        String tele = Compte.validationInput(sc.nextLine(),"^[0-9]{10,}$");
+
         System.out.println("id : ");
         int id = sc.nextInt();
         sc.nextLine();

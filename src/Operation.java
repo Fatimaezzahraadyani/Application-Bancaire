@@ -48,16 +48,34 @@ public class Operation {
         Compte compte = Compte.rechercheCompte();
         if(compte == null){
             System.out.println("Compte introuvable !");
-            return;
+
         }else {
             System.out.println("entrer le montant que vous voulez deposer :");
             double montant = scanner.nextDouble();
-            compte.setSolde((compte.getSolde() + montant));
+
+                montant = compte.getSolde() + montant;
+                compte.setSolde(montant);
             System.out.println("Montant déposer !");
+
         }
     }
     public static void retrait(){
         Compte compte = Compte.rechercheCompte();
+        if(compte==null){
+            System.out.println("Compte introuvable !");
+        }else {
+            System.out.println("Montant du retrait :");
+            double montant = scanner.nextDouble();
+            if(compte.getSolde()>montant){
+                montant = compte.getSolde() - montant;
+                compte.setSolde(montant);
+                System.out.println("Montant retraiter !");
+            }else {
+                System.out.println("Le solde est insuffisant !");
+
+            }
+
+        }
     }
 
 
